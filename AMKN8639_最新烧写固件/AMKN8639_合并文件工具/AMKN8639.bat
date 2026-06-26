@@ -1,0 +1,4 @@
+del AMKN8639_SX.bin
+fsutil  file createnew AMKN8639_SX.bin 131072
+cat AMKN8639_APP_IAP.bin >>AMKN8639_SX.bin
+hbin STM32H743XI_UART1_PA9PA10_IAP.bin AMKN8639_SX.bin

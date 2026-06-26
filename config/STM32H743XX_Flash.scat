@@ -1,0 +1,65 @@
+;******************************************************************************
+;
+;                         SCATTER LOADING DESCRIPTION
+;                                    ARM
+;                             KEIL's uVision5 
+;                   (RealView Microprocessor Developer Kit)
+;
+; Filename      : STM32H743XX_Flash.scat
+;******************************************************************************
+LR_IROM1 0x08000000 0x00200000 									;; Load region
+{
+
+    ER_IROM1 0x08000000	0x00200000
+    {
+   		vectors_m7.o (VECT, +First)
+		inita.o (INIT,LAST)
+		* (+RO)
+    }
+	    
+    ITCM_IRAM 0x00000000 0x00010000
+    {
+        .ANY (ITCM_IRAM)
+    }
+    
+    DTCM_IRAM 0x20000000 0x00020000 
+    {
+        .ANY (DTCM_IRAM)        
+    }
+    
+    D1_RAM 0x24000000 0x00080000    
+    {
+        .ANY (D1_SRAM)
+        .ANY (+RW,+ZI)
+    }
+       
+    D2_SRAM 0x30000000 0x00020000
+    {
+       .ANY (D2_SRAM)
+    }                                                           ;
+    
+    DMA_SRAM 0x30020000 0x00028000  
+    {
+       .ANY (DMA_SRAM)
+    }                                                           ;
+    
+    D3_SRAM 0x38000000 0x00010000
+    {
+       .ANY (D3_SRAM)
+    }                                                           ;
+    
+    D3_BKPSRAM 0x38800000 0x00001000
+    {
+       .ANY (D3_BKPSRAM)
+    }                                                           ;
+            
+    
+    EX_SDRAM 0xC0000000 0x02000000
+    {
+       .ANY (EX_SDRAM)       
+    }                                                          ;
+        
+    ;; A default __user_initial_stackheap() will be used        ;
+    ARM_LIB_HEAP  0x0000B000 EMPTY  0x00004000   {}
+    ARM_LIB_STACK 0x0000FFF0 EMPTY -0x00000FF0   {}
+}

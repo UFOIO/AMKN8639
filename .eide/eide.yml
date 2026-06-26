@@ -1,0 +1,650 @@
+version: "4.1"
+name: AMKN8639
+type: ARM
+deviceName: null
+packDir: null
+srcDirs: []
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders:
+    - name: config
+      files:
+        - path: ../../config/const.h
+        - path: ../../config/config.h
+        - path: ../../config/can_config.h
+        - path: ../../config/debug_config.h
+        - path: ../../config/test_config.h
+        - path: ../../config/modbus_config.h
+        - path: ../../config/iap_config.h
+        - path: ../../config/irq_priority_config.h
+        - path: ../../config/product_config.h
+        - path: ../../config/dma_config.h
+        - path: ../../config/modbus_slave_config.h
+        - path: config/AMKN8639_Config.h
+        - path: config/AMKN8639_IOConfig.h
+        - path: ../../config/mdma_config.h
+      folders: []
+    - name: Source
+      files:
+        - path: ../../source/ISRHook.c
+        - path: ../../source/ISRHook.h
+        - path: ../../source/main.c
+        - path: ../../source/TaskFile.c
+        - path: ../../source/TaskLWIP.c
+        - path: ../../source/UserVars.c
+        - path: ../../source/TaskEventCtrl.c
+        - path: ../../source/TaskInputData.c
+        - path: ../../source/TaskOutputData.c
+        - path: ../../source/TaskProcessData.c
+        - path: ../../source/TaskUserCtrl.c
+        - path: ../../source/TaskZqxyCtrl.c
+        - path: ../../source/comfun.c
+        - path: ../../source/user_app.c
+        - path: ../../source/user_app.h
+        - path: ../../source/user_adcapp.c
+        - path: ../../source/user_canapp.c
+        - path: ../../source/user_deviceapp.c
+        - path: ../../source/user_fclkapp.c
+        - path: ../../source/user_ioapp.c
+        - path: ../../source/user_netwifiapp.c
+        - path: ../../source/user_testapp.c
+        - path: ../../source/user_uartapp.c
+        - path: ../../source/user_usbapp.c
+        - path: ../../source/user_pwmapp.c
+        - path: ../../source/TaskUserApp1.c
+        - path: ../../source/TaskCANOpen.c
+        - path: ../../source/user_inputdata.c
+        - path: ../../source/TaskModbus.c
+        - path: ../../source/ConfigPara.h
+        - path: ../../source/UserVars.h
+        - path: ../../source/user_data.h
+        - path: ../../source/user_config.h
+        - path: ../../source/user_const.h
+        - path: ../../source/fonts/asc12.c
+        - path: ../../source/fonts/asc16.c
+        - path: ../../source/fonts/asc24.c
+        - path: ../../source/fonts/asc32.c
+        - path: ../../source/fonts/fonts.h
+        - path: ../../source/fonts/hz12.c
+        - path: ../../source/fonts/hz16.c
+        - path: ../../source/fonts/hz24.c
+        - path: ../../source/fonts/hz32.c
+        - path: ../../source/Image/Image.c
+        - path: ../../source/TaskLCD.c
+        - path: ../../source/vars.c
+        - path: ../../source/vars.h
+        - path: ../../source/TaskTest.c
+      folders: []
+    - name: libapp
+      files:
+        - path: ../../libapp/adc_app.c
+        - path: ../../libapp/can_app.c
+        - path: ../../libapp/dac_app.c
+        - path: ../../libapp/eeprom_app.c
+        - path: ../../libapp/exti_app.c
+        - path: ../../libapp/fclk_app.c
+        - path: ../../libapp/io_app.c
+        - path: ../../libapp/IRQHandler.c
+        - path: ../../libapp/libapp.c
+        - path: ../../libapp/LibAppVars.c
+        - path: ../../libapp/LibOSHook.c
+        - path: ../../libapp/modbus_app.c
+        - path: ../../libapp/net_app.c
+        - path: ../../libapp/pwm_app.c
+        - path: ../../libapp/rtc_app.c
+        - path: ../../libapp/spiflash_app.c
+        - path: ../../libapp/tim_app.c
+        - path: ../../libapp/uart_app.c
+        - path: ../../libapp/LibAppVars.h
+        - path: ../../libapp/LibOSHook.h
+        - path: ../../libapp/dma_app.c
+        - path: ../../libapp/fatfs_app.c
+        - path: ../../libapp/file_app.c
+        - path: ../../libapp/i2c_app.c
+        - path: ../../libapp/spi_app.c
+        - path: ../../libapp/usb_app.c
+        - path: ../../libapp/modbus_slave_app.c
+        - path: ../../libapp/dma2d_app.c
+        - path: ../../libapp/ltdc_app.c
+        - path: ../../libapp/sdram_app.c
+        - path: ../../libapp/at.c
+        - path: ../../libapp/jpeg_app.c
+        - path: ../../libapp/lptim_app.c
+        - path: ../../libapp/mdma_app.c
+        - path: ../../libapp/tftp.c
+        - path: ../../libapp/qspi_app.c
+      folders: []
+    - name: driver
+      files:
+        - path: ../../driver/device_app.c
+        - path: ../../driver/device_app.h
+        - path: ../../driver/wifi/wifi.c
+        - path: ../../driver/wifi/wifi.h
+        - path: ../../driver/wifi/wifi_app.c
+        - path: ../../driver/wifi/wifi_app.h
+        - path: ../../driver/wifi/wifi_config.h
+        - path: ../../driver/device_exfun.h
+        - path: ../../driver/ft5xxx/ft5xxx.c
+        - path: ../../driver/ft5xxx/ft5xxx_app.c
+        - path: ../../driver/ft5xxx/ft5xxx_config.h
+        - path: ../../driver/i2c_io/i2c_io.c
+      folders: []
+    - name: Libraries
+      files:
+        - path: ../../Libraries/adc.h
+        - path: ../../Libraries/at45dbxx.h
+        - path: ../../Libraries/bkp.h
+        - path: ../../Libraries/can.h
+        - path: ../../Libraries/crc.h
+        - path: ../../Libraries/dac.h
+        - path: ../../Libraries/delay.h
+        - path: ../../Libraries/eeprom.h
+        - path: ../../Libraries/exti.h
+        - path: ../../Libraries/flash.h
+        - path: ../../Libraries/fsmc.h
+        - path: ../../Libraries/gpio.h
+        - path: ../../Libraries/i2c.h
+        - path: ../../Libraries/iap.h
+        - path: ../../Libraries/iwdg.h
+        - path: ../../Libraries/modbus.h
+        - path: ../../Libraries/net.h
+        - path: ../../Libraries/NFlash.h
+        - path: ../../Libraries/rtc.h
+        - path: ../../Libraries/sd.h
+        - path: ../../Libraries/spi.h
+        - path: ../../Libraries/subfun.h
+        - path: ../../Libraries/sysint.h
+        - path: ../../Libraries/timer.h
+        - path: ../../Libraries/Uart.h
+        - path: ../../Libraries/USBDevice.h
+        - path: ../../Libraries/USBHost.h
+        - path: ../../Libraries/W25Qxx.h
+        - path: ../../Libraries/AMKN.h
+        - path: ../../Libraries/ltdc.h
+        - path: ../../Libraries/dma2d.h
+        - path: ../../Libraries/jpeg.h
+        - path: ../../Libraries/mdma.h
+        - path: ../../Libraries/lptimer.h
+        - path: ../../Libraries/ipcc.h
+        - path: ../../Libraries/qspi.h
+        - path: ../../Libraries/sdram.h
+        - path: ../../Libraries/dma.h
+        - path: ../../Libraries/pwr.h
+        - path: ../../Libraries/lib_readme.txt
+        - path: ../../Libraries/STM32H743XX_V131_20260415.lib
+      folders: []
+    - name: init
+      files:
+        - path: ../../init/inita.s
+        - path: ../../init/freertos/vectors_m7.s
+      folders: []
+    - name: fatfs
+      files:
+        - path: ../../FatFS/source/diskio.c
+        - path: ../../FatFS/source/ff.c
+        - path: ../../FatFS/source/ffunicode.c
+        - path: ../../FatFS/source/ffsystem.c
+        - path: ../../FatFS/source/diskio.h
+        - path: ../../FatFS/source/ff.h
+        - path: ../../FatFS/source/integer.h
+        - path: ../../FatFS/source/ffconf.h
+      folders: []
+    - name: lwip
+      files:
+        - path: ../../lwip-2.1.3/lwip.c
+        - path: ../../lwip-2.1.3/lwipopts.h
+        - path: ../../lwip-2.1.3/arch/ethernetif.h
+        - path: ../../lwip-2.1.3/arch/sys_arch.h
+        - path: ../../lwip-2.1.3/arch/cc.h
+        - path: ../../lwip-2.1.3/arch/sys_arch.c
+        - path: ../../lwip-2.1.3/arch/ethernetif.c
+      folders: []
+    - name: readme
+      files:
+        - path: ../../doc/readme.txt
+      folders: []
+    - name: FreeRTOS
+      files:
+        - path: ../../FreeRTOS/heap_4.c
+        - path: ../../FreeRTOS/list.c
+        - path: ../../FreeRTOS/queue.c
+        - path: ../../FreeRTOS/tasks.c
+        - path: ../../FreeRTOS/event_groups.c
+        - path: ../../FreeRTOS/CM4/port.c
+        - path: ../../FreeRTOS/timers.c
+      folders: []
+    - name: FreeRTOS_App
+      files:
+        - path: ../../FreeRTOS_App/app_cfg.h
+        - path: ../../FreeRTOS_App/FreeRTOS_APP.c
+        - path: ../../FreeRTOS_App/OSVars.h
+        - path: ../../FreeRTOS_App/OSVars.c
+        - path: ../../FreeRTOS_App/FreeRTOSConfig.h
+      folders: []
+    - name: canopen
+      files:
+        - path: ../../CANopen/src/dcf.c
+        - path: ../../CANopen/src/emcy.c
+        - path: ../../CANopen/src/lifegrd.c
+        - path: ../../CANopen/src/lss.c
+        - path: ../../CANopen/src/nmtMaster.c
+        - path: ../../CANopen/src/nmtSlave.c
+        - path: ../../CANopen/src/objacces.c
+        - path: ../../CANopen/src/pdo.c
+        - path: ../../CANopen/src/sdo.c
+        - path: ../../CANopen/src/states.c
+        - path: ../../CANopen/src/sync.c
+        - path: ../../CANopen/src/timer.c
+        - path: ../../CANOpen/hardware/canopen_config.h
+        - path: ../../CANOpen/dictionary/Master.c
+        - path: ../../CANOpen/dictionary/Master.h
+      folders: []
+    - name: canopen_app
+      files:
+        - path: ../../CANOpen/canopen_app/canopen_app.c
+        - path: ../../CANOpen/canopen_app/canopen_app.h
+        - path: ../../CANOpen/canopen_app/canopen_config.h
+        - path: ../../CANOpen/canopen_app/timer3.c
+        - path: ../../CANOpen/canopen_app/timer3.h
+      folders: []
+    - name: lvgl_src
+      files:
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_disp.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_event.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_group.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_indev.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_indev_scroll.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_obj.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_obj_class.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_obj_draw.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_obj_pos.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_obj_scroll.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_obj_style.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_obj_style_gen.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_obj_tree.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_refr.c
+        - path: ../../lvgl/lvgl-8.3.10/src/core/lv_theme.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_draw.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_draw_arc.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_draw_img.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_draw_label.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_draw_layer.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_draw_line.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_draw_mask.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_draw_rect.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_draw_transform.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_draw_triangle.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_img_buf.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_img_cache.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/lv_img_decoder.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/lv_extra.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_dejavu_16_persian_hebrew.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_fmt_txt.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_loader.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_8.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_10.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_12.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_12_subpx.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_14.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_16.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_18.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_20.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_22.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_24.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_26.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_28.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_28_compressed.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_30.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_32.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_34.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_36.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_38.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_40.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_42.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_44.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_46.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_montserrat_48.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_simsun_16_cjk.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_unscii_8.c
+        - path: ../../lvgl/lvgl-8.3.10/src/font/lv_font_unscii_16.c
+        - path: ../../lvgl/lvgl-8.3.10/src/hal/lv_hal_disp.c
+        - path: ../../lvgl/lvgl-8.3.10/src/hal/lv_hal_indev.c
+        - path: ../../lvgl/lvgl-8.3.10/src/hal/lv_hal_tick.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_anim.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_anim_timeline.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_area.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_async.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_bidi.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_color.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_fs.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_gc.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_ll.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_log.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_lru.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_math.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_mem.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_printf.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_style.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_style_gen.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_templ.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_timer.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_tlsf.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_txt.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_txt_ap.c
+        - path: ../../lvgl/lvgl-8.3.10/src/misc/lv_utils.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_arc.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_bar.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_btn.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_btnmatrix.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_canvas.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_checkbox.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_dropdown.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_img.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_label.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_line.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_objx_templ.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_roller.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_slider.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_switch.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_table.c
+        - path: ../../lvgl/lvgl-8.3.10/src/widgets/lv_textarea.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/layouts/flex/lv_flex.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/layouts/grid/lv_grid.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/bmp/lv_bmp.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/ffmpeg/lv_ffmpeg.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/freetype/lv_freetype.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/fsdrv/lv_fs_fatfs.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/fsdrv/lv_fs_posix.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/fsdrv/lv_fs_stdio.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/fsdrv/lv_fs_win32.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/gif/gifdec.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/gif/lv_gif.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/png/lodepng.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/png/lv_png.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/qrcode/lv_qrcode.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/rlottie/lv_rlottie.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/sjpg/lv_sjpg.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/libs/sjpg/tjpgd.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/widgets/meter/lv_meter.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/widgets/keyboard/lv_keyboard.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/widgets/chart/lv_chart.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/widgets/calendar/lv_calendar.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/widgets/calendar/lv_calendar_header_arrow.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/widgets/calendar/lv_calendar_header_dropdown.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/sw/lv_draw_sw.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/sw/lv_draw_sw_arc.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/sw/lv_draw_sw_blend.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/sw/lv_draw_sw_dither.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/sw/lv_draw_sw_gradient.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/sw/lv_draw_sw_img.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/sw/lv_draw_sw_layer.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/sw/lv_draw_sw_letter.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/sw/lv_draw_sw_line.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/sw/lv_draw_sw_polygon.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/sw/lv_draw_sw_rect.c
+        - path: ../../lvgl/lvgl-8.3.10/src/draw/sw/lv_draw_sw_transform.c
+        - path: ../../lvgl/lvgl-8.3.10/src/extra/widgets/tabview/lv_tabview.c
+      folders: []
+    - name: lvgl_app
+      files:
+        - path: ../../lvgl/lvgl_app/lvgl_app.c
+        - path: ../../lvgl/lvgl_app/lvgl_app.h
+        - path: ../../lvgl/lvgl_app/lvgl_config.h
+        - path: ../../lvgl/lvgl_app/custom/custom.c
+        - path: ../../lvgl/lvgl_app/generated/events_init.c
+        - path: ../../lvgl/lvgl_app/generated/gui_guider.c
+        - path: ../../lvgl/lvgl_app/generated/setup_scr_adc_screen.c
+        - path: ../../lvgl/lvgl_app/generated/setup_scr_can_screen.c
+        - path: ../../lvgl/lvgl_app/generated/setup_scr_dido_screen.c
+        - path: ../../lvgl/lvgl_app/generated/setup_scr_ethnet_screen.c
+        - path: ../../lvgl/lvgl_app/generated/setup_scr_home_screen.c
+        - path: ../../lvgl/lvgl_app/generated/setup_scr_pwm_screen.c
+        - path: ../../lvgl/lvgl_app/generated/setup_scr_tty_screen.c
+        - path: ../../lvgl/lvgl_app/generated/setup_scr_wifi_screen.c
+        - path: ../../lvgl/lvgl_app/generated/widgets_init.c
+        - path: ../../lvgl/lvgl_app/generated/guider_fonts/lv_font_montserratMedium_10.c
+        - path: ../../lvgl/lvgl_app/generated/guider_fonts/lv_font_SourceHanSerifSC_Regular_10.c
+        - path: ../../lvgl/lvgl_app/generated/guider_fonts/lv_font_SourceHanSerifSC_Regular_12.c
+        - path: ../../lvgl/lvgl_app/generated/guider_fonts/lv_font_SourceHanSerifSC_Regular_16.c
+        - path: ../../lvgl/lvgl_app/generated/guider_fonts/lv_font_SourceHanSerifSC_Regular_18.c
+        - path: ../../lvgl/lvgl_app/generated/guider_fonts/lv_font_SourceHanSerifSC_Regular_28.c
+        - path: ../../lvgl/lvgl_app/generated/guider_fonts/lv_font_SourceHanSerifSC_Regular_32.c
+        - path: ../../lvgl/lvgl_app/generated/images/_home_1_alpha_90x90.c
+        - path: ../../lvgl/lvgl_app/generated/images/_home_2_alpha_90x90.c
+        - path: ../../lvgl/lvgl_app/generated/images/_ZQLY_logo_alpha_145x65.c
+      folders: []
+    - name: lvgl_porting
+      files:
+        - path: ../../lvgl/lvgl-8.3.10/examples/porting/lv_port_disp.c
+        - path: ../../lvgl/lvgl-8.3.10/examples/porting/lv_port_disp.h
+        - path: ../../lvgl/lvgl-8.3.10/examples/porting/lv_port_indev.c
+        - path: ../../lvgl/lvgl-8.3.10/examples/porting/lv_port_indev.h
+      folders: []
+    - name: lvgl_conf
+      files:
+        - path: ../../lvgl/lvgl-8.3.10/lvgl.h
+        - path: ../../lvgl/lvgl-8.3.10/lv_conf.h
+      folders: []
+    - name: lvgl_demo
+      files:
+        - path: ../../lvgl/lvgl-8.3.10/demos/widgets/lv_demo_widgets.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/widgets/assets/img_demo_widgets_avatar.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/widgets/assets/img_lvgl_logo.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/widgets/assets/img_clothes.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/benchmark/lv_demo_benchmark.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/benchmark/assets/img_benchmark_cogwheel_alpha16.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/benchmark/assets/img_benchmark_cogwheel_argb.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/benchmark/assets/img_benchmark_cogwheel_chroma_keyed.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/benchmark/assets/img_benchmark_cogwheel_indexed16.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/benchmark/assets/img_benchmark_cogwheel_rgb.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/benchmark/assets/img_benchmark_cogwheel_rgb565a8.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/benchmark/assets/lv_font_bechmark_montserrat_12_compr_az.c.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/benchmark/assets/lv_font_bechmark_montserrat_16_compr_az.c.c
+        - path: ../../lvgl/lvgl-8.3.10/demos/benchmark/assets/lv_font_bechmark_montserrat_28_compr_az.c.c
+      folders: []
+dependenceList: []
+outDir: build
+miscInfo:
+  uid: d5d2cff156c319e6b98313f541a389f6
+targets:
+  AMKN8639:
+    cppPreprocessAttrs:
+      defineList:
+        - AMKN8639_TYPE
+      incList:
+        - ..
+        - ../../source
+        - ../../Config
+        - ../../FatFS/source
+        - ../../init
+        - ../../Libraries
+        - Config
+        - ../../driver
+        - ../../libapp
+        - ../../FreeRTOS/include
+        - ../../FreeRTOS
+        - ../../FreeRTOS_App
+        - ../../lwip-2.1.3/src/include/lwip
+        - ../../lwip-2.1.3/src/include
+        - ../../lwip-2.1.3/src/core/ipv4
+        - ../../lwip-2.1.3/src/core
+        - ../../lwip-2.1.3/src
+        - ../../lwip-2.1.3/src/netif
+        - ../../lwip-2.1.3/src/api
+        - ../../lwip-2.1.3
+        - ../../lwip-2.1.3/system
+        - ../../lwip-2.1.3/src/core/ipv6
+        - ../../lwip-2.1.3/app
+        - ../../lwip-2.1.3/arch
+        - ../../CANOpen/inc
+        - ../../CANOpen/dictionary
+        - ../../CANOpen/canopen_app
+        - ../../CANOpen/inc/stm32
+        - ../../source/fonts
+        - ../../source/image
+        - ../../lvgl/lvgl_app
+        - ../../lvgl/lvgl-8.3.10/src
+        - ../../lvgl/lvgl-8.3.10/examples/porting
+        - ../../lvgl/lvgl-8.3.10
+        - ../../lvgl
+        - ../../lvgl/lvgl-8.3.10/examples
+        - ../../lvgl/lvgl_app/custom
+        - ../../lvgl/lvgl_app/generated
+        - .cmsis/include
+        - RTE/_AMKN8639
+      libList: []
+    excludeList:
+      - <virtual_root>/canopen
+      - <virtual_root>/canopen_app/timer3.c
+      - <virtual_root>/lvgl_src/lv_calendar_header_arrow.c
+      - <virtual_root>/lvgl_app/custom.c
+      - <virtual_root>/lvgl_app/events_init.c
+      - <virtual_root>/lvgl_app/gui_guider.c
+      - <virtual_root>/lvgl_app/setup_scr_adc_screen.c
+      - <virtual_root>/lvgl_app/setup_scr_can_screen.c
+      - <virtual_root>/lvgl_app/setup_scr_dido_screen.c
+      - <virtual_root>/lvgl_app/setup_scr_ethnet_screen.c
+      - <virtual_root>/lvgl_app/setup_scr_home_screen.c
+      - <virtual_root>/lvgl_app/setup_scr_pwm_screen.c
+      - <virtual_root>/lvgl_app/setup_scr_tty_screen.c
+      - <virtual_root>/lvgl_app/setup_scr_wifi_screen.c
+      - <virtual_root>/lvgl_app/widgets_init.c
+    settings:
+      debugger: cortex-debug
+    toolchain: AC5
+    toolchainConfigMap:
+      AC5:
+        archExtensions: ""
+        cpuType: Cortex-M7
+        floatingPointHardware: double
+        options:
+          version: 4
+          afterBuildTasks:
+            - name: "[Copy linker output for Keil User Commands]"
+              abortAfterFailed: true
+              command: mkdir ${KEIL_OUTPUT_DIR} & copy "${OutDir}\${ProjectName}.axf" "${KEIL_OUTPUT_DIR}\${KEIL_OUTPUT_NAME}.axf"
+              disable: false
+            - name: fromelf --bin --output .\output\bin\AMKN8639_APP.bin .\output\AMKN8639_APP.axf
+              abortAfterFailed: true
+              command: fromelf --bin --output .\output\bin\AMKN8639_APP.bin .\output\AMKN8639_APP.axf
+              disable: false
+          asm-compiler:
+            defines: []
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            CXX_FLAGS: --diag_suppress=1 --diag_suppress=1295
+            C_FLAGS: --diag_suppress=1 --diag_suppress=1295
+            c99-mode: true
+            gnu-extensions: true
+            one-elf-section-per-function: true
+            optimization: level-0
+            warnings: no-warnings
+          global:
+            output-debug-info: enable
+            use-microLIB: true
+          linker:
+            $outputTaskExcludes:
+              - .bin
+            misc-controls: --entry ResetHndlr
+            output-format: elf
+            ro-base: "0x08000000"
+            rw-base: "0x20000000"
+            xo-base: ""
+        scatterFilePath: config/STM32H743XX_Flash.scat
+        storageLayout:
+          RAM:
+            - id: 1
+              isChecked: false
+              mem:
+                size: "0x48000"
+                startAddr: "0x30000000"
+              noInit: false
+              tag: RAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x10000"
+                startAddr: "0x38000000"
+              noInit: false
+              tag: RAM
+            - id: 3
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 1
+              isChecked: true
+              mem:
+                size: "0x20000"
+                startAddr: "0x20000000"
+              noInit: false
+              tag: IRAM
+            - id: 2
+              isChecked: true
+              mem:
+                size: "0x80000"
+                startAddr: "0x24000000"
+              noInit: false
+              tag: IRAM
+          ROM:
+            - id: 1
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 3
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 1
+              isChecked: true
+              isStartup: true
+              mem:
+                size: "0x100000"
+                startAddr: "0x8000000"
+              tag: IROM
+            - id: 2
+              isChecked: true
+              isStartup: false
+              mem:
+                size: "0x100000"
+                startAddr: "0x8100000"
+              tag: IROM
+        useCustomScatterFile: true
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: "null"
+          vendor: "null"
+        otherCmds: ""
+        proType: 1
+        speed: 8000
+      STLink:
+        address: "0x08000000"
+        bin: ""
+        elFile: None
+        optionBytes: .eide/amkn8639.st.option.bytes.ini
+        otherCmds: ""
+        proType: SWD
+        resetMode: default
+        runAfterProgram: true
+        speed: 4000
+    uploader: STLink

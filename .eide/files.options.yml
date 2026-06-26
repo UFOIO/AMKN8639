@@ -1,0 +1,34 @@
+##########################################################################################
+#                        Append Compiler Options For Source Files
+##########################################################################################
+
+# syntax:
+#   <your pattern>: <compiler options>
+# For get pattern syntax, please refer to: https://www.npmjs.com/package/micromatch
+#
+# examples:
+#   'main.cpp':           --cpp11 -Og ...
+#   'src/*.c':            -gnu -O2 ...
+#   'src/lib/**/*.cpp':   --cpp11 -Os ...
+#   '!Application/*.c':   -O0
+#   '**/*.c':             -O2 -gnu ...
+
+version: "2.1"
+options:
+    AMKN8639:
+        files: {}
+        virtualPathFiles:
+            <virtual_root>/canopen_app/timer3.c: ""
+            <virtual_root>/lvgl_src/lv_calendar_header_arrow.c: ""
+            <virtual_root>/lvgl_app/custom.c: ""
+            <virtual_root>/lvgl_app/events_init.c: ""
+            <virtual_root>/lvgl_app/gui_guider.c: ""
+            <virtual_root>/lvgl_app/setup_scr_adc_screen.c: ""
+            <virtual_root>/lvgl_app/setup_scr_can_screen.c: ""
+            <virtual_root>/lvgl_app/setup_scr_dido_screen.c: ""
+            <virtual_root>/lvgl_app/setup_scr_ethnet_screen.c: ""
+            <virtual_root>/lvgl_app/setup_scr_home_screen.c: ""
+            <virtual_root>/lvgl_app/setup_scr_pwm_screen.c: ""
+            <virtual_root>/lvgl_app/setup_scr_tty_screen.c: ""
+            <virtual_root>/lvgl_app/setup_scr_wifi_screen.c: ""
+            <virtual_root>/lvgl_app/widgets_init.c: ""

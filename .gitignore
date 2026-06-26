@@ -1,0 +1,55 @@
+# ===== dot files / IDE =====
+/.vscode/launch.json
+/.vscode/uv4.log.lock           # Keil uv4 进程锁文件
+/.settings
+/.eide/log
+/.eide.usr.ctx.json
+
+# ===== project out =====
+/build
+/bin
+/obj
+/out
+
+# ===== eide template =====
+*.ept
+*.eide-template
+
+# ===== Keil MDK intermediate & user-specific files =====
+*.uvguix.*
+*.uvoptx
+*.scvd
+JLinkLog.txt
+JLinkSettings.ini
+*.dep
+*.crf
+*.d
+*.o
+*.axf
+*.hex
+*.bin
+*.htm
+*.lnp
+*.lst
+*.map
+*.iex
+*.bak
+*.build_log.htm
+RTE/
+DebugConfig/
+EventRecorderStub.scvd
+
+# ===== Build & flash logs =====
+*.log
+flash_log*.txt
+after_flash_log*.txt
+
+# ===== Output directory (compiled binaries) =====
+/output/
+
+# ===== Third-party / vendor =====
+/.cmsis/                   # ARM CMSIS device reference (Keil Pack 提供实际头文件)
+
+# ===== Tooling workspace (not part of project) =====
+/.agents/                  # Claude Code agent skills
+skills-lock.json           # Claude Code skills lockfile

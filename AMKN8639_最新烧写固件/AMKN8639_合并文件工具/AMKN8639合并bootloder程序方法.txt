@@ -1,0 +1,6 @@
+1. 将应用程序产生的AMKN8639_APP_IAP.bin拷贝到这个目录。 注意：必须是这个文件名，如果不是请修改一下。
+2. STM32H743XI_UART1_PA9PA10_IAP.bin是Bootloder程序
+3. 点击运行AMKN8639.bat批处理文件, 生成的AMKN8639_SX.bin就是烧录文件
+4. 用JLink V9或STLink下载器将AMKN8639_SX.bin烧录进芯片
+5. 重新加电运行，通过相应串口可以观察运行结果
+注意：AMKN8639.bat批处理文件只能在WINXP或WIN7 64位或WIN10下运行
