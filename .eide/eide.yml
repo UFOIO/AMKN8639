@@ -40,7 +40,6 @@ virtualFolder:
         - path: ../../source/TaskUserCtrl.c
         - path: ../../source/TaskZqxyCtrl.c
         - path: ../../source/comfun.c
-        - path: ../../source/user_app.c
         - path: ../../source/user_app.h
         - path: ../../source/user_adcapp.c
         - path: ../../source/user_canapp.c
