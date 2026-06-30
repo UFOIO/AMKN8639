@@ -1,0 +1,31 @@
+;******************************************************************************
+;  File name: bootloader.scat
+;  Project  : AMKN8639 self-developed Bootloader
+;  Description: Scatter-loading for self-developed Bootloader
+;                - Bootloader: 0x08000000  64KB
+;                - Stack top:   0x2001FFF0 (DTCM top, hardcoded in startup_boot.s)
+;
+;  Modify History:
+;   1. Version: 1.0
+;      Date:    2026.6.22
+;      Modify:  Phase 3.2 - create file
+;   2. Version: 1.1
+;      Date:    2026.6.22
+;      Modify:  Phase 3.2 v2 - 极简 layout, 不定义 ARM_LIB_STACK/HEAP (让 armlink 自动分配)
+;******************************************************************************
+LR_IROM1 0x08000000 0x00010000                              ;; 64KB Bootloader
+{
+    ER_IROM1 0x08000000 0x00010000
+    {
+        startup_boot.o (BOOT_VECT, +First)    ;; Vectors 表在 offset 0x00
+        bootloader.o (+RO)                     ;; BL C 代码 + 只读数据
+        w25q64.o (+RO)                         ;; Modify 2026.6.23: P1 W25Q64 驱动
+    }
+
+    ; 所有 RAM 放到 D1_SRAM, armlink 自动分配 stack/heap
+    ; 栈顶由 startup_boot.s 硬编码为 0x2407FFF0 (D1 SRAM 顶端, 默认可访问)
+    RW_RAM 0x24000000 0x00080000
+    {
+        * (+RW, +ZI)
+    }
+}

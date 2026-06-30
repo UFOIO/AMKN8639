@@ -1,0 +1,9 @@
+device STM32H743XI
+si SWD
+speed 4000
+erase
+loadfile bootloader_v2/AMKN8639_BL6_APP.bin 0x08000000
+verifybin bootloader_v2/AMKN8639_BL6_APP.bin 0x08000000
+r
+g
+q

@@ -1,0 +1,5 @@
+init
+reset init
+flash write_image erase C:\Users\gjt\Desktop\项目工程\2026内蒙轻型机库项目\软件\STMMY-H743MCU\AMKNxxxx_FreeRTOS_V1.31.02_20260501\targets\AMKN8639\bootloader_v2\AMKN8639_BL6_APP.bin 0x08000000
+reset run
+shutdown
