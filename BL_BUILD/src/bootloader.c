@@ -4,6 +4,9 @@
 #define FLASH_ACR      (*(volatile uint32_t*)(0x52002000+0x00))
 #define RCC_AHB4ENR    (*(volatile uint32_t*)(0x58024400+0xE0))
 #define RCC_APB2ENR    (*(volatile uint32_t*)(0x58024400+0xF0))
+#define RCC_APB2RSTR   (*(volatile uint32_t*)(0x58024400+0x98))
+#define RCC_D2CCIP2R   (*(volatile uint32_t*)(0x58024400+0x54))
+#define PWR_D3CR       (*(volatile uint32_t*)(0x58024800+0x18))
 #define SCB_VTOR       (*(volatile uint32_t*)0xE000ED08)
 #define SCB_CPACR      (*(volatile uint32_t*)0xE000ED88)
 #define SCB_AIRCR      (*(volatile uint32_t*)0xE000ED0C)
@@ -29,6 +32,25 @@ typedef struct { volatile uint32_t CR1,CR2,CR3,BRR,GTPR,RTOR,RQR,ISR,ICR,RDR,TDR
 #define SRAM_BASE    0x20000000
 #define BL_TEMP      0x081E0000
 
+/* AEABI runtime stubs (no-libc build) - required because call_from_sram triggers __aeabi_memcpy4 at -O2 */
+__attribute__((used)) void *__aeabi_memcpy4(void *dst, const void *src, unsigned int n) {
+    unsigned int *d = (unsigned int*)dst; const unsigned int *s = (const unsigned int*)src;
+    while (n >= 4) { *d++ = *s++; n -= 4; }
+    return dst;
+}
+__attribute__((used)) void *__aeabi_memcpy(void *dst, const void *src, unsigned int n) {
+    unsigned char *d = (unsigned char*)dst; const unsigned char *s = (const unsigned char*)src;
+    while (n--) *d++ = *s++;
+    return dst;
+}
+__attribute__((used)) void __aeabi_memclr4(void *dst, unsigned int n) {
+    unsigned int *d = (unsigned int*)dst;
+    while (n >= 4) { *d++ = 0; n -= 4; }
+}
+__attribute__((used)) void __aeabi_memclr(void *dst, unsigned int n) {
+    unsigned char *d = (unsigned char*)dst;
+    while (n--) *d++ = 0;
+}
 void dly_ms(int ms){for(volatile int i=0;i<ms*6400;i++)__asm("nop");}
 void upc(char c){while(!(USART1->ISR&(1<<7)));USART1->TDR=c;}
 void ups(const char*s){while(*s)upc(*s++);}
@@ -87,10 +109,13 @@ typedef int (*erase_fn_t)(uint32_t);
 typedef int (*write_fn_t)(uint32_t,uint32_t);
 
 static int call_from_sram(void* fn, uint32_t arg1, uint32_t arg2, int is_write) {
-    uint32_t* src = (uint32_t*)fn;
+    /* Strip Thumb bit (LSB=1) before word-copy, else first instruction is misaligned by 1 byte */
+    uint32_t* src = (uint32_t*)((uint32_t)fn & ~1U);
     uint32_t* dst = (uint32_t*)SRAM_BASE;
-    /* Copy 128 instructions (512 bytes) - enough for our functions */
-    for(int i=0;i<128;i++)dst[i]=src[i];
+    /* Copy 256 insns (1024 bytes): function body + PC-relative constant pool (~700B).
+       Earlier 128-insn copy missed the constant pool, causing HardFault when SRAM code
+       tried to LDR constants from unmapped DTCM addresses. */
+    for(int i=0;i<256;i++)dst[i]=src[i];
     __asm("dsb"); __asm("isb");
     if(is_write){
         return ((write_fn_t)(SRAM_BASE | 1))(arg1, arg2);
@@ -151,13 +176,49 @@ const uint32_t vectors[2]={0x20020000,(uint32_t)Reset_Handler};
 
 __attribute__((noreturn))
 void Reset_Handler(void){
-    RCC_CR|=1;while(!(RCC_CR&(1<<2)));
+    /* Magic test (DTCM 0x08): write RCC_AHB4ENR right after GPIOBEN set, expect 0x02 */
+    RCC_AHB4ENR|=2; /* GPIOBEN */
+    *(volatile uint32_t*)0x20000008 = RCC_AHB4ENR;
+    /* LED test (DTCM 0x10): prove PB7 ODR drove low (=0x00) at some point */
+    GPIOB->MODER&=~(3<<14);GPIOB->MODER|=(1<<14); /* PB7 output */
+    GPIOB->ODR&=~(1<<7); /* LED on (PB7 low) */
+    *(volatile uint32_t*)0x20000010 = GPIOB->ODR;
+    GPIOB->ODR|=(1<<7); /* LED off (PB7 high) */
+    /* Minimal clock tree setup needed for USART1 to function on H743 */
+    PWR_D3CR=(PWR_D3CR&~0xC000)|0x4000; /* VOS=10=VOS1 */
+    {volatile int v=1000000;while(!(PWR_D3CR&(1U<<13))&&--v)__asm("nop");}
+    RCC_CR|=1;while(!(RCC_CR&(1<<2))); /* ensure HSI on+ready */
     FLASH_ACR=0x04;
     SCB_CPACR|=((3UL<<20)|(3UL<<22));__asm("dsb");__asm("isb");
+    /* USART1 kernel clock = HSI (must be set before clock enable) */
+    RCC_D2CCIP2R=(RCC_D2CCIP2R&~0x38)|0x18;
+    /* Toggle USART1 reset (must precede clock enable for proper reset) */
+    RCC_APB2RSTR|=0x10; RCC_APB2RSTR&=~0x10;
+    /* Enable peripheral clocks (USART1 + GPIOA for PA9/PA10) */
     RCC_AHB4ENR|=1;RCC_APB2ENR|=0x10;
+    __asm("DSB"); /* flush clock enables before peripheral access */
+    *(volatile uint32_t*)0x20000018 = RCC_AHB4ENR; /* expect 0x03 GPIOAEN|GPIOBEN */
+    *(volatile uint32_t*)0x2000001C = RCC_APB2ENR; /* expect 0x10 USART1EN */
     GPIOA->MODER&=~((3U<<18)|(3U<<20));GPIOA->MODER|=((2U<<18)|(2U<<20));
     GPIOA->AFRH&=~((0xFU<<4)|(0xFU<<8));GPIOA->AFRH|=((7U<<4)|(7U<<8));
-    USART1->BRR=64000000/115200;USART1->CR1=(1U<<3)|(1U<<2)|(1U<<0);dly_ms(50);
+    __asm("DSB"); /* flush GPIOA writes */
+    *(volatile uint32_t*)0x20000020 = GPIOA->MODER; /* expect PA9/PA10 AF mode */
+    *(volatile uint32_t*)0x20000024 = GPIOA->AFRH; /* expect PA9/PA10 AF7 */
+    /* Simple proven USART1 init (FIFOEN+ACK hangs on H743 Rev V: REACK/TEACK never set) */
+    USART1->CR1=0;
+    USART1->BRR=64000000/115200;
+    USART1->CR1=(1U<<3)|(1U<<2)|(1U<<0); /* TE|RE|UE */
+    __asm("DSB");
+    *(volatile uint32_t*)0x20000028 = USART1->CR1; /* expect 0x0000000D */
+    *(volatile uint32_t*)0x2000002C = USART1->BRR; /* expect 0x22B */
+    *(volatile uint32_t*)0x20000030 = USART1->ISR; /* after UE|TE|RE, before delay */
+    dly_ms(10);
+    *(volatile uint32_t*)0x20000034 = USART1->ISR; /* after 10ms settle */
+    *(volatile uint32_t*)0x20000038 = USART1->CR1; /* CR1 still 0xD */
+    dly_ms(10);
+    *(volatile uint32_t*)0x2000003C = USART1->ISR; /* after second settle */
+    dly_ms(50);
+    *(volatile uint32_t*)0x20000040 = USART1->ISR; /* before print, final */
     led_init();
 
     uint32_t bkp=RTC_BKP0R;
@@ -202,3 +263,4 @@ void HardFault_Handler(void){while(1){}}
 void MemManage_Handler(void){while(1){}}
 void BusFault_Handler(void){while(1){}}
 void UsageFault_Handler(void){while(1){}}
+

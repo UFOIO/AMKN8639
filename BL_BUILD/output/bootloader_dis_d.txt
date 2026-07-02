@@ -1,0 +1,76 @@
+
+========================================================================
+
+** ELF Header Information
+
+    File Name: bootloader.axf
+
+    Machine class: ELFCLASS32 (32-bit)
+    Data encoding: ELFDATA2LSB (Little endian)
+    Header version: EV_CURRENT (Current version)
+    Operating System ABI: none
+    ABI Version: 0
+    File Type: ET_EXEC (Executable) (2)
+    Machine: EM_ARM (ARM)
+
+    Image Entry point: Not specified
+    Flags: None (0x05000000)
+
+    ARM ELF revision: 5 (ABI version 2)
+
+    Built with
+    Component: ARM Compiler 5.05 update 2 (build 169) Tool: armcc [4d0f38]
+    Component: ARM Compiler 5.05 update 2 (build 169) Tool: armlink [4d0f33]
+
+    Header size: 52 bytes (0x34)
+    Program header entry size: 32 bytes (0x20)
+    Section header entry size: 40 bytes (0x28)
+
+    Program header entries: 1
+    Section header entries: 8
+
+    Program header offset: 6464 (0x00001940)
+    Section header offset: 6496 (0x00001960)
+
+    Section header string table index: 7
+
+========================================================================
+
+** Program header #0 (PT_LOAD) [PF_X + PF_R]
+    Size : 2380 bytes
+    Virtual address: 0x08000000 (Alignment 4)
+
+
+========================================================================
+
+** Section #1 'ER_IROM1' (SHT_PROGBITS) [SHF_ALLOC + SHF_EXECINSTR]
+    Size   : 2380 bytes (alignment 4)
+    Address: 0x08000000
+
+
+** Section #2 '.debug_frame' (SHT_PROGBITS)
+    Size   : 1328 bytes
+
+
+** Section #3 '.symtab' (SHT_SYMTAB)
+    Size   : 800 bytes (alignment 4)
+    String table #4 '.strtab'
+    Last local symbol no. 21
+
+
+** Section #4 '.strtab' (SHT_STRTAB)
+    Size   : 780 bytes
+
+
+** Section #5 '.note' (SHT_NOTE)
+    Size   : 20 bytes (alignment 4)
+
+
+** Section #6 '.comment' (SHT_PROGBITS)
+    Size   : 1028 bytes
+
+
+** Section #7 '.shstrtab' (SHT_STRTAB)
+    Size   : 76 bytes
+
+
